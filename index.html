@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grid Controller Test 016</title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="all">
+</head>
+<h2>Choose an octave and a piano will appear!</h2>
+<body class="site">
+  <div class="selectoctave">
+    Octave: <select onchange="findoctave ()" id="octave">
+      <option value="">Choose your octave!</option>
+      <option value="0">1</option>
+      <option value="1">2</option>
+      <option value="2">3</option>
+      <option value="3">4</option>
+      <option value="4">5</option>
+      <option value="5">6</option>
+      <option value="6">7</option>
+      <option value="7">8</option>
+      <option value="8">9</option>
+    </select>
+  </div>
+
+  <h1>grid_0064</h1>
+  <div id="instrument">
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.7.1/Tone.js"></script>
+  <script src="script.js"></script>
+</body>
