@@ -4,11 +4,14 @@
 body {
   background-color: grey;
   color: white;
+  text-align: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 20px;
 }
-h2 {
+h2, h3, h4 {
   text-shadow: 1px 1px black;
 }
-.findoctave {
+.selectoctave {
   text-shadow: 1px 1px black;
 }
 h1 {
@@ -23,7 +26,7 @@ h1 {
 #instrument {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(4, 80px);
+  grid-template-rows: repeat(1, 80px);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
 }

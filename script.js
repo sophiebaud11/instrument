@@ -34,21 +34,36 @@ var gridController = {key: {}};
 
 function prepareTheSound(theBox, note, elementIndex){
   theBox.onclick = function() {
+    console.log(elementIndex);
     console.log("playing " + elementIndex);
-    synth.triggerAttackRelease(note, '8n')
-  }
+    synth.triggerAttackRelease(note, '8n');
+  };
   document.onkeydown = function(e) {
     console.log(e.keyCode);
     var octavechoice = document.getElementById("octave").value * 12;
-    if (e.keyCode === 65) {
-      var note = notes[octavechoice];
+    console.log(octavechoice);
+    for (var i = 0; i < 9; i++) {
+      if (e.keyCode === (49 + i)) {
+        var note = notes[octavechoice + i];
+        console.log("playing " + ("key_" + ("0000" + (octavechoice+i+1)).slice(-4)));
+        synth.triggerAttackRelease(note, '8n')
+      };
+    }
+    if (e.keyCode === 48) {
+      var note = notes[octavechoice + 9];
+      console.log("playing " + ("key_" + ("0000" + (octavechoice+10)).slice(-4)));
       synth.triggerAttackRelease(note, '8n')
     };
-    if (e.keyCode === 83) {
-      var note = notes[octavechoice + 1];
+    if (e.keyCode === 189) {
+      var note = notes[octavechoice + 10];
+      console.log("playing " + ("key_" + ("0000" + (octavechoice+11)).slice(-4)));
       synth.triggerAttackRelease(note, '8n')
     };
-
+    if (e.keyCode === 187) {
+      var note = notes[octavechoice + 11];
+      console.log("playing " + ("key_" + ("0000" + (octavechoice+12)).slice(-4)));
+      synth.triggerAttackRelease(note, '8n')
+    };
   }
 };
 
@@ -57,7 +72,10 @@ var sharps = [1, 3, 6, 8, 10];
 window.onload = function () {
   var octavechoice = 0;
   window.findoctave = function () {
+    instrument.innerHTML = "";
+    var gridController = {key: {}};
     var octavechoice = document.getElementById("octave").value * 12;
+    console.log(JSON.stringify(gridController, null, 4));
     console.log(octavechoice);
     for (var i = octavechoice; i < octavechoice + 12; i++) {
         var keyId = ("key_" + ("0000" + (i+1)).slice(-4));
@@ -91,6 +109,7 @@ window.onload = function () {
         prepareTheSound(box, note, keyId);
         instrument.append(box);
     };
+    console.log(JSON.stringify(gridController, null, 4));
 }
 };
 
